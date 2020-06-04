@@ -1,0 +1,33 @@
+.bubble {
+    border-style: solid;
+    border-radius: 4mm;
+    width: 35%;
+}
+
+.chat {
+    overflow-y: scroll;
+    margin-bottom: 15mm;
+    margin-top: 20mm;
+}
+
+#text {
+    margin-left: 5mm;
+    font-size: 12pt;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#author {
+    text-align: left;
+    margin-left: 5mm;
+    font-size: 8pt;
+    color: #666;
+    display: inline;
+}
+
+#time {
+    text-align: right;
+    margin-right: 3mm;
+    font-size: 8pt;
+    color: #666;
+    display: inline;
+}

@@ -1,0 +1,27 @@
+<div class="input-group mb-3">
+    <input  
+    #textBox 
+    type="text" 
+    class="form-control" 
+    placeholder="Message" 
+    aria-label="Message" 
+    aria-describedby="button-addon2" 
+    (keyup.enter)="onSend(textBox.value); textBox.value='';"
+    >
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" 
+        type="button" 
+        id="button-addon2" 
+        (click)="goToBotom()"
+        >
+        ⍌
+        </button>
+        <button class="btn btn-outline-secondary" 
+        type="button" 
+        id="button-addon2" 
+        (click)="onSend(textBox.value); textBox.value='';"
+        >
+        Send
+    </button>
+    </div>
+</div>
