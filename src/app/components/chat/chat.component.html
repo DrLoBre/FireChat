@@ -2,7 +2,7 @@
     <ul *ngFor="let message of chat" style="list-style: none;">
         <li>
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">{{ message.author }} at {{ message.time }}</div>
+                <div class="card-header">{{ message.author }} at {{ message.time.valueOf() | date:'shortTime' }}</div>
                 <div class="card-body">
                   <p class="card-text">{{ message.text }}</p>
                 </div>

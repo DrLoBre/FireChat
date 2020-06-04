@@ -10,10 +10,12 @@ import { Message } from '../../models/Message';
 export class ChatComponent implements OnInit {
 
   chat: Message[];
+  now: Date;
 
   constructor(public messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.now = new Date();
     this.messageService.getChat().subscribe(chat => {
       // console.log(chat);
       chat.sort((a, b) => (a.time > b.time) ? 1 : - 1);
