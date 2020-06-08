@@ -34,7 +34,11 @@ export class SendLineComponent implements OnInit {
   }
 
   goToBotom() {
-    window.scrollTo(0, document.body.scrollHeight);
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
 
 }
