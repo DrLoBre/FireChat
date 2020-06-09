@@ -33,4 +33,9 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     });
   }
 
+  onDelete(message: Message) {
+    console.log('delete' + message);
+    this.messageService.deleteMessage(message);
+  }
+
 }

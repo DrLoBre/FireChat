@@ -14,7 +14,7 @@ export class MessageService {
 
 
   constructor(public firestore: AngularFirestore) {
-    this.chat = this.firestore.collection('Chat').valueChanges() as Observable<Message[]>;
+    this.chat = this.firestore.collection('Chat').valueChanges({ idField: 'eventId' }) as unknown as Observable<Message[]>;
   }
 
   getChat() {
@@ -24,4 +24,11 @@ export class MessageService {
   sendMessage(message: any) {
     this.firestore.collection('Chat').add(message);
   }
+
+  deleteMessage(data) {
+    return this.firestore
+        .collection('Chat')
+        .doc(data.eventId)
+        .delete();
+ }
 }

@@ -2,7 +2,17 @@
     <ul *ngFor="let message of chat" style="list-style: none;">
         <li>
             <div class="card bg-light mb-3" style="max-width: 18rem;">
-                <div class="card-header">{{ message.author }} at {{ (message.time *1000).valueOf() | date:'shortTime' }}</div>
+                <div class="card-header">{{ message.author }} at {{ (message.time *1000).valueOf() | date:'shortTime' }}
+                  <div style="float: right;">
+                    <div class="dropdown">
+                      <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" (click)="onDelete(message)">Delete</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="card-body">
                   <p class="card-text">{{ message.text }}</p>
                 </div>
