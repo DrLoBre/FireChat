@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../../models/Message';
 import { MessageService } from '../../services/message.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-send-line',
@@ -9,24 +10,21 @@ import { MessageService } from '../../services/message.service';
 })
 export class SendLineComponent implements OnInit {
 
-  name: string;
+  user: firebase.User;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.name = 'Anonymus';
+    this.authService.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    });
   }
 
   onSend(text: string) {
-    if (!this.messageService.username) {
-      this.name = 'Anonymus';
-    }
-    else {
-      this.name = this.messageService.username;
-    }
 
     const message = new Message();
-    message.author = this.name;
+    message.author = this.user.displayName;
     message.text = text;
     message.time = new Date();
 

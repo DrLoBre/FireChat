@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MessageService } from '../../services/message.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -9,16 +11,23 @@ import { MessageService } from '../../services/message.service';
 })
 export class HeaderComponent implements OnInit {
 
-  username: string;
+  user: firebase.User;
 
-  constructor(private messageService: MessageService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.username = 'Anonymus';
+    this.authService.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    });
   }
 
-  setUsername(username: string) {
-    this.messageService.username = username;
+  onLogOut() {
+    this.authService.logout();
+  }
+
+  onLogIn() {
+    this.router.navigate(['/login']);
   }
 
 }

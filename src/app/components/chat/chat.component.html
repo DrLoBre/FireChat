@@ -1,4 +1,11 @@
-<div class="chat" #scrollMe>
+<div class="fixed-top">
+  <div class="container">
+    <app-header></app-header>
+  </div>
+</div>
+
+<div  class="container">  
+  <div class="chat" #scrollMe>
     <ul *ngFor="let message of chat" style="list-style: none;">
         <li>
             <div class="card bg-light mb-3" style="max-width: 18rem;">
@@ -21,4 +28,13 @@
 
     </ul>
 </div>
+</div>
+
+<div class="fixed-bottom">
+  <div class="container">
+    <app-send-line></app-send-line>  
+  </div>
+</div>
+
+
 <!--  | date:'longDate'--> 
