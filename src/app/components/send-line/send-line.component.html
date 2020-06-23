@@ -3,7 +3,7 @@
     #textBox 
     type="text" 
     class="form-control" 
-    placeholder="Message" 
+    placeholder="Type something {{ user.displayName }}" 
     aria-label="Message" 
     aria-describedby="button-addon2" 
     (keyup.enter)="onSend(textBox.value); textBox.value='';"

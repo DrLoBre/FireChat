@@ -38,5 +38,4 @@ export class SendLineComponent implements OnInit {
       behavior: 'smooth'
     });
   }
-
 }
